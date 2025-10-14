@@ -1,10 +1,10 @@
 # The value of the concentration of P=HOBr is set to 1 arbitrarily.
 
-using Pkg
-Pkg.add("Catalyst")
-Pkg.add("OrdinaryDiffEqDefault")
-Pkg.add("Plots")
-Pkg.add("TensorBoardLogger")
+#using Pkg
+#Pkg.add("Catalyst")
+#Pkg.add("OrdinaryDiffEqDefault")
+#Pkg.add("Plots")
+#Pkg.add("TensorBoardLogger")
 
 using Catalyst
 using OrdinaryDiffEqDefault
@@ -13,8 +13,8 @@ using TensorBoardLogger
 
 function Oregonator_default()
     reaction_network = @reaction_network begin
-        @species X Y Z
-        @parameters A P [isconstantspecies=true] 
+        @species X(t) Y(t) Z(t)
+        @species A P [constant=true] 
         @parameter f
         @parameters k1 k2 k3 k4 k5
         k1, A + Y --> X + P

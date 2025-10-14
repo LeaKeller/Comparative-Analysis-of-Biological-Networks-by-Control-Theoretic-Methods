@@ -1,10 +1,10 @@
 # The value of the concentration of P=HOBr is set to 1 arbitrarily.
 
-using Pkg
-Pkg.add("Catalyst")
-Pkg.add("OrdinaryDiffEqDefault")
-Pkg.add("Plots")
-Pkg.add("TensorBoardLogger")
+#using Pkg
+#Pkg.add("Catalyst")
+#Pkg.add("OrdinaryDiffEqDefault")
+#Pkg.add("Plots")
+#Pkg.add("TensorBoardLogger")
 
 using Catalyst
 using OrdinaryDiffEqDefault
@@ -13,8 +13,8 @@ using TensorBoardLogger
 
 function Gyorgyri_default()
     reaction_network = @reaction_network begin
-        @species X Y Z V
-        @parameters A M H C [isconstantspecies=true] 
+        @species X(t) Y(t) Z(t) V(t)
+        @species A M H C [constant=true] 
         @parameters k1 k2 k3 k4 k5 k6 k7
         k1, Y + X + H --> 2*V
         k2, Y + A + 2*H --> V + X
